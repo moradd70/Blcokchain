@@ -1,15 +1,34 @@
 {
-  "name": "mrapp",
-  "version": "1.0.0",
-  "description": "Simple Management App",
-  "main": "app.js",
+  "name": "todoapp",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "start": "set PORT=3006 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
-    "express":"*",
-    "body-parser":"*"
-  },
-  "author": "Mostafa Raddaoui",
-  "license": "ISC"
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.0",
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "ejs": "~2.5.6",
+    "express": "~4.15.2",
+    "font-awesome": "^4.7.0",
+    "mongoose": "^4.11.7",
+    "mongoose-paginate": "^5.0.3",
+    "morgan": "~1.8.1",
+    "nodemon": "^1.11.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "semantic-ui-css": "^2.3.1",
+    "semantic-ui-react": "^0.80.0",
+    "serve-favicon": "~2.4.2"
+  }
 }

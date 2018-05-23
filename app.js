@@ -1,28 +1,45 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var path = require('path');
+import React, { Component } from 'react';
+import logo from './logo.svg';
 
-var app = express();
-/*
+//Import the modified App.css
+import './App.css';
 
-var logger = function(req, res, next){
-    console.log('logging ...');
-    next();    
+// Import the Routes component, which contains our Route setup
+
+import { Routes } from './Routes'
+
+
+// Provider component is a react-redux component for setting up the Redux Store
+
+import { Provider } from 'react-redux'
+
+// Import the ConfigureStore that holds the initial Configuration
+
+import { configureStore } from './store/configureStore'
+
+import * as TodoActions from './todos/actions/todoActions'
+
+import AppBar from 'material-ui/AppBar';
+
+
+// Create a Store from the Configuration, we can pass a Initial State here
+
+const store = configureStore()
+
+// At first dispatch a Get Todos Actions, So we'll recieve the Todos 
+// fetched from the server at the start of the app
+
+store.dispatch(TodoActions.GetTodos())
+
+const App = (props) => {
+  return (
+
+    //Provider needs to contain all the Containers/Components it will give access to the Store
+
+    <Provider store={store} >
+      <Routes />
+    </Provider>
+  )
 }
-app.use(logger);
-*/
-//----Body Parser Middleware 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
 
-//Set Static Path
-app.use(express.static(path.join(__dirname, 'public'))
-
-app.get('/', function(req, res){
-    res.send('This is My Site');
-});
-app.listen(3000, function(){
-    console.log('Server Started on Port 3000 ...');
-
-})
-
+export default App;
